@@ -31,6 +31,11 @@ jobs:
       steps:
         - uses: papodaca/install-docker-action@v1
 
+        - name: Generate Random Version
+          id: generate_version
+          run: |         
+            RANDOM_VERSION=$(date +%Y%m%d%H%M%S)-$(openssl rand -hex 4)         
+            echo "VERSION=$RANDOM_VERSION" >> $GITHUB_ENV
         -
           name: Checkout
           uses: actions/checkout@v4
@@ -53,4 +58,4 @@ jobs:
           with:
             context: ./azure-vote/azure-vote
             push: true
-            tags: punitkshah/votingapp:latest
+            tags: punitkshah/votingapp:${{ env.VERSION }}
