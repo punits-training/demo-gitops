@@ -1,7 +1,9 @@
 name: CI
 on:
-  push:
+ push:
     branches: [ main ]
+    paths:
+     - 'azure-vote/**'
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
