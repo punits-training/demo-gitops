@@ -4,7 +4,7 @@ metadata:
   name: azure-vote-back
   namespace: devops
 spec:
-  replicas: 1
+  replica: 1
   selector:
     matchLabels:
       app: azure-vote-back
