@@ -5,7 +5,7 @@ metadata:
   namespace: devops
 spec:
   replica: 1
-  selector:
+  selectory:
     matchLabels:
       apps: azure-vote-back
   template:
