@@ -7,7 +7,7 @@ spec:
   replica: 1
   selector:
     matchLabels:
-      app: azure-vote-back
+      apps: azure-vote-back
   template:
     metadata:
       labels:
