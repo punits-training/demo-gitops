@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Automated-Demo
+  labels:
+    app: Automated-Demo
+    kubernetes.azure.com/generator: devhub
+  namespace: automate-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Automated-Demo
+  template:
+    metadata:
+      labels:
+        app: Automated-Demo
+    spec:
+      containers:
+        - name: Automated-Demo
+          image: acrazurevote.azurecr.io/azure-vote:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
