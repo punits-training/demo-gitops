@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: DemoAutomatedCICD
+  labels:
+    app: DemoAutomatedCICD
+    kubernetes.azure.com/generator: devhub
+  namespace: automate-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: DemoAutomatedCICD
+  template:
+    metadata:
+      labels:
+        app: DemoAutomatedCICD
+    spec:
+      containers:
+        - name: DemoAutomatedCICD
+          image: acrazurevote.azurecr.io/azure-vote-demo:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
